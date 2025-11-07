@@ -1,18 +1,12 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 
 export async function POST(req: Request) {
   const data = await req.json();
-  const filePath = path.join(process.cwd(), "public", "visits.json");
+  console.log("Visitor logged:", data);
 
-  let visits: any[] = [];
-  if (fs.existsSync(filePath)) {
-    visits = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  }
+  return NextResponse.json({ message: "Logged", data });
+}
 
-  visits.push(data);
-  fs.writeFileSync(filePath, JSON.stringify(visits, null, 2));
-
-  return NextResponse.json({ message: "Logged", total: visits.length });
+export async function GET() {
+  return NextResponse.json({ message: "Tracking API ready 🚀" });
 }
