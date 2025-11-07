@@ -1,6 +1,6 @@
 export const metadata = {
-  title: "My Custom Histats",
-  description: "Simple website visitor tracker built with Next.js",
+  title: "Histatlol Tracker",
+  description: "Simple visitor counter built with Next.js",
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className="bg-gray-50 text-gray-900 antialiased">
+      <body style={{ fontFamily: "sans-serif", background: "#fafafa", margin: 0 }}>
         {children}
       </body>
     </html>
